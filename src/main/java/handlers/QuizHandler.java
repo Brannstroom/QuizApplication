@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import interfaces.PageConstants;
 import models.Account;
-import models.Question;
+import models.MultipleChoiceQuestion;
 
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
@@ -25,7 +25,7 @@ public class QuizHandler {
     int correct = 0;
     int wrong = 0;
     String category;
-    List<Question> questions;
+    List<MultipleChoiceQuestion> questions;
 
     boolean isComplete = false;
 
@@ -46,7 +46,7 @@ public class QuizHandler {
     }
 
     private void setupQuestion() {
-        Question question = questions.get(this.questionId);
+        MultipleChoiceQuestion question = questions.get(this.questionId);
 
         MemoryHandler.questionTextArea.setText(question.getQuestion());
         MemoryHandler.labels[0].setText("Category: " + question.getCategory().replaceAll("&quot;", "\"").replaceAll("&#039;", "'"));
@@ -103,7 +103,7 @@ public class QuizHandler {
         }
     }
 
-    private List<Question> getQuestions() {
+    private List<MultipleChoiceQuestion> getQuestions() {
         String apiPrefix = "https://opentdb.com/api.php?";
         String apiAmount = "amount=" + amount;
         String apiCategory = category == "Any category" ? "" : "&category=" + getValueFromCategory(category);
@@ -132,9 +132,9 @@ public class QuizHandler {
         System.out.println(json);
 
         ObjectMapper objectMapper = new ObjectMapper();
-        Question[] questions = new Question[amount];
+        MultipleChoiceQuestion[] questions = new MultipleChoiceQuestion[amount];
         try {
-            questions = objectMapper.readValue(json, Question[].class);
+            questions = objectMapper.readValue(json, MultipleChoiceQuestion[].class);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }

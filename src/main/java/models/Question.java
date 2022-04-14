@@ -3,8 +3,6 @@ package models;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.List;
-
 public class Question {
 
     private String category;
@@ -17,18 +15,15 @@ public class Question {
 
     private String correct_answer;
 
-    private List<String> incorrect_answers;
-
     @JsonCreator
     public Question(@JsonProperty("category") String category, @JsonProperty("type") String type,
                     @JsonProperty("difficulty") String difficulty, @JsonProperty("question") String question,
-                    @JsonProperty("correct_answer") String correct_answer, @JsonProperty("incorrect_answers") List<String> incorrect_answers) {
+                    @JsonProperty("correct_answer") String correct_answer) {
         this.category = category;
         this.type = type;
         this.difficulty = difficulty;
         this.question = question;
         this.correct_answer = correct_answer;
-        this.incorrect_answers = incorrect_answers;
     }
 
     public String getCategory() {
@@ -71,14 +66,6 @@ public class Question {
         this.correct_answer = correct_answer;
     }
 
-    public List<String> getIncorrect_answers() {
-        return incorrect_answers;
-    }
-
-    public void setIncorrect_answers(List<String> incorrect_answers) {
-        this.incorrect_answers = incorrect_answers;
-    }
-
     @Override
     public String toString() {
         return "Question{" +
@@ -86,7 +73,6 @@ public class Question {
                 ", type='" + type + '\'' +
                 ", question='" + question + '\'' +
                 ", correct_answer='" + correct_answer + '\'' +
-                ", incorrect_answers=" + incorrect_answers.toString() +
                 '}';
     }
 }

@@ -213,6 +213,8 @@ public class QuizGUI extends JFrame {
                 this.setSize(800, 600);
                 break;
             case 4:
+                questionWrongAmount.setText("Wrong: 0");
+                questionCorrectAmount.setText("Correct: 0");
                 tabbedPane.setSelectedComponent(questionPane);
                 this.setSize(800, 600);
                 break;
