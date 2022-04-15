@@ -59,7 +59,6 @@ public class QuizGUI extends JFrame {
 
         this.setContentPane(tabbedPane);
 
-
         MemoryHandler.labels = new JLabel[]{questionCategory, questionQuestionCounter, questionCorrectAmount, questionWrongAmount};
         MemoryHandler.textAreas = new JTextArea[]{questionAnswer1, questionAnswer2, questionAnswer3, questionAnswer4};
         MemoryHandler.questionTextArea = questionQuestion;
