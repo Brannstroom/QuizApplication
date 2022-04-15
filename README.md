@@ -20,3 +20,7 @@ Per nå er det bare multiple-choice spørsmål, men vi ønsker å legge til en f
 #### Leaderboard
 Vi ønsker også å legge til et GUI-vindu for leaderboard hvor vi kan vise frem de beste Quizzerne.
 
+
+#
+### Klassediagram
+![UML Diagram](https://github.com/Brannstroom/QuizApplication/blob/main/uml_diagram.png?raw=true)
